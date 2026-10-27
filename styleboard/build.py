@@ -81,17 +81,33 @@ if not site:
 
 if site:   # the public gallery only lists finished styles (with a STYLE.md)
     styles = [s for s in styles if os.path.exists(os.path.join(ROOT, 'styles', s['slug'], 'STYLE.md'))]
+# Which films are published. A style can have a film in the library that is not on the "web" release
+# (a film whose mascot was re-skinned, or a feature that is not published here): the gallery must not
+# link a film the site does not carry, or its card opens a dead player. The list is the release itself.
+PUBLISHED = set()
+for d in (os.path.join(ROOT, '.release', 'web'), os.path.join(ROOT, '.release', 'final')):
+    if os.path.isdir(d):
+        PUBLISHED = {os.path.splitext(f)[0] for f in os.listdir(d) if f.endswith('.mp4')}
+        break
+if not PUBLISHED:                         # no local copy: fall back to the catalog
+    PUBLISHED = {s['slug'] for s in json.load(open(os.path.join(HERE, 'catalog.json'), encoding='utf-8'))
+                 if s.get('dur', 0) > 0}
+# The feature film (glm98) is not a style in the grid; it is published only if its cut is on the release.
+
 for s in styles:
     slug = s['slug']
     s['imgs'] = sorted(os.path.basename(p) for p in glob.glob(os.path.join(HERE, 'img', slug + '_*.jpg')))
     has_poster = os.path.exists(os.path.join(ROOT, 'styles', slug, 'poster.jpg'))
     has_md = os.path.exists(os.path.join(ROOT, 'styles', slug, 'STYLE.md'))
     if site:
-        s['video'] = f'films/{slug}.mp4' if s['dur'] else ''          # 720p web cut, served by Pages as video/mp4 (Safari needs it)
-        s['full'] = f'{FILMS_URL}/{slug}.mp4' if s['dur'] else ''       # full quality on Releases
+        # 720p web cut, served by Pages as video/mp4 (Safari needs it); only if the release carries it
+        s['video'] = f'films/{slug}.mp4' if s['dur'] and slug in PUBLISHED else ''
+        s['full'] = f'{FILMS_URL}/{slug}.mp4' if s['dur'] and slug in PUBLISHED else ''   # full quality on Releases
         s['poster'] = f'posters/{slug}.jpg' if has_poster else ''
         s['stylemd'] = f'{BLOB_URL}/styles/{slug}/STYLE.md' if has_md else ''
     else:
+        # locally the grid shows every style that has a film in the library; the site build above is the one
+        # that must match the published release
         s['video'] = f'../styles/{slug}/{slug}.mp4' if os.path.exists(os.path.join(ROOT, 'styles', slug, slug + '.mp4')) else ''
         s['poster'] = f'../styles/{slug}/poster.jpg' if has_poster else ''
         s['stylemd'] = f'../styles/{slug}/STYLE.md' if has_md else ''
@@ -149,8 +165,10 @@ for i, (cn, en) in enumerate(cats, 1):
 
 # the feature presentation above the nominees: GLM-Videos 98 (the film's sources are not part of the library;
 # the gallery streams the 720p web cut from Pages, the 1080p file is on the "films" release, the poster is styleboard/img)
+# The feature is only presented when its web cut is published: otherwise the card would open a dead player.
 FEATURE = dict(poster='img/feature_glm98.jpg', dur='6:31',
                src='films/glm98.mp4' if site else '../.release/web/glm98.mp4', full=f'{FILMS_URL}/glm98.mp4')
+HAS_FEATURE = 'glm98' in PUBLISHED
 n_vid = sum(bool(s.get('video')) for s in styles)
 minutes = sum(s.get('dur', 0) for s in styles) / 60
 n_all = len(styles)
@@ -190,18 +208,26 @@ def mm_ss_iso(t):   # "6:31" → "PT6M31S"
 poster_abs = SITE_URL + FEATURE['poster']
 gallery_meta = head_meta(SITE_URL, f'GLM-Videos · {n_all} film styles for ZCode, made in code', GALLERY_DESC, poster_abs,
                          [{'@type': 'CollectionPage', '@id': SITE_URL, 'url': SITE_URL, 'name': 'GLM-Videos gallery', 'description': GALLERY_DESC,
-                           'about': {'@id': REPO_URL}, 'author': {'@id': AUTHOR['@id']}, 'hasPart': {'@id': FILM_URL}}, REPO_LD, AUTHOR])
+                           'about': {'@id': REPO_URL}, 'author': {'@id': AUTHOR['@id']},
+                           **({'hasPart': {'@id': FILM_URL}} if HAS_FEATURE else {})}, REPO_LD, AUTHOR])
+# the feature film's metadata is only declared when the film is published here
 film_meta = head_meta(FILM_URL, 'GLM-Videos 98 · 98 Years of Best Picture, made in code by GLM-5.3', FILM_DESC, poster_abs,
-                      [{'@type': 'VideoObject', '@id': FILM_URL, 'url': FILM_URL, 'name': 'GLM-Videos 98 · 98 Years of Best Picture',
+                      ([{'@type': 'VideoObject', '@id': FILM_URL, 'url': FILM_URL, 'name': 'GLM-Videos 98 · 98 Years of Best Picture',
                         'description': FILM_DESC, 'thumbnailUrl': poster_abs, 'uploadDate': '2026-09-29', 'duration': mm_ss_iso(FEATURE['dur']),
                         'contentUrl': FEATURE['full'], 'embedUrl': FILM_URL, 'inLanguage': 'en', 'creator': {'@id': AUTHOR['@id']},
-                        'isBasedOn': {'@id': REPO_URL}}, REPO_LD, AUTHOR])
+                        'isBasedOn': {'@id': REPO_URL}}] if HAS_FEATURE else
+                       [{'@type': 'CollectionPage', '@id': FILM_URL, 'url': FILM_URL, 'name': 'GLM-Videos 98 · the 98 styles',
+                         'description': FILM_DESC, 'about': {'@id': REPO_URL}, 'author': {'@id': AUTHOR['@id']}}]) + [REPO_LD, AUTHOR])
 
 def fill(name, extra):
     page = open(os.path.join(HERE, name), encoding='utf-8').read()
     for k, v in {**extra, '{{N_ALL}}': str(n_all), '{{N_VID}}': str(n_vid), '{{N_CAT}}': str(len(cats)), '{{MIN}}': f'{minutes:.0f}',
                  '{{REPO_URL}}': REPO_URL, '{{REPO}}': REPO, '{{FEATURE_FULL}}': FEATURE['full'], '{{FEATURE_DUR}}': FEATURE['dur']}.items():
         page = page.replace(k, v)
+    if not HAS_FEATURE:      # the feature film's cut is not published here: drop the whole block
+        page = re.sub(r'<!--FEATURE_START-->.*?<!--FEATURE_END-->', '', page, flags=re.S)
+        # on the film's own page keep the stylebook, but take the player out (it would open a dead video)
+        page = re.sub(r'<!--FEATURE_PLAYER_START-->.*?<!--FEATURE_PLAYER_END-->', '', page, flags=re.S)
     return page
 
 out_dir = site or HERE
@@ -304,7 +330,13 @@ def thanks_films():
         return (f'<section class="film" id="{fid}">{alias}<div class="frame"><video controls preload="metadata" playsinline poster="../img/thanks/{fid}.jpg" src="{src}"></video></div>\n'
                 f' <div class="cap"><h2>{e(en)}</h2><span class="cn">{e(zh)}</span><span class="meta">{dur} · {day} · <a href="{THANKS_REL}/{fid}.mp4">1080p ↓</a></span></div>\n'
                 f' <p class="desc">{e(d_en)}</p><p class="desc-cn">{e(d_zh)}</p></section>')
-    return one(THANKS[0]) + '\n<div class="pair">\n' + '\n'.join(one(f) for f in THANKS[1:]) + '\n</div>'
+    # only the thank-you films whose cuts are published here: an unpublished one would open a dead player
+    pub = [f for f in THANKS if f[0] in PUBLISHED]
+    if not pub:
+        return '<p class="desc">No thank-you films are published on this site.</p>'
+    if len(pub) == 1:
+        return one(pub[0])
+    return one(pub[0]) + '\n<div class="pair">\n' + '\n'.join(one(f) for f in pub[1:]) + '\n</div>'
 
 def iso(t): m, s_ = t.split(':'); return f'PT{int(m)}M{int(s_)}S'
 thanks_meta = head_meta(THANKS_URL, 'Thank you for every star · GLM-Videos', THANKS_DESC, SITE_URL + 'img/thanks/stars6000.jpg',
@@ -312,7 +344,7 @@ thanks_meta = head_meta(THANKS_URL, 'Thank you for every star · GLM-Videos', TH
                           'about': {'@id': REPO_URL}, 'author': {'@id': AUTHOR['@id']},
                           'hasPart': [{'@type': 'VideoObject', 'name': f[1], 'description': f[5], 'thumbnailUrl': SITE_URL + f'img/thanks/{f[0]}.jpg',
                                        'uploadDate': f[4], 'duration': iso(f[3]), 'contentUrl': f'{THANKS_REL}/{f[0]}.mp4', 'embedUrl': THANKS_URL + '#' + f[0]}
-                                      for f in THANKS]}, REPO_LD, AUTHOR])
+                                      for f in THANKS if f[0] in PUBLISHED]}, REPO_LD, AUTHOR])
 os.makedirs(os.path.join(out_dir, 'thanks'), exist_ok=True)
 open(os.path.join(out_dir, 'thanks', 'index.html'), 'w', encoding='utf-8').write(fill('thanks.html', {
     '{{DESC}}': html.escape(THANKS_DESC), '{{HEAD_META}}': thanks_meta, '{{FILMS}}': thanks_films()}))

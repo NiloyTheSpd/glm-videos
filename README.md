@@ -22,7 +22,7 @@ other models may not reproduce them well, so use them with care.
 ## 🎬 Feature presentation: GLM-Videos 98
 
 <table><tr>
-<td width="50%" valign="top"><a href="https://NiloyTheSpd.github.io/glm-videos/glm98/"><img src="docs/glm98.jpg" alt="GLM-Videos 98 — 98 Years of Best Picture"></a><br><b>▶ The film</b> · 1927 – 2025 · 6:31<br><sub>One Zhipu walks through all 98 Best Picture winners, each one redrawn in a style that fits the film.</sub></td>
+<td width="50%" valign="top"><img src="docs/glm98.jpg" alt="GLM-Videos 98 — 98 Years of Best Picture"><br><b>GLM-Videos 98</b> · 1927 – 2025 · 6:31<br><sub>One Zhipu walks through all 98 Best Picture winners, each one redrawn in a style that fits the film.</sub></td>
 <td width="50%" valign="top"><a href="https://NiloyTheSpd.github.io/glm-videos/glm98/#styles"><img src="docs/glm98-styles.jpg" alt="GLM-Videos 98 — all 98 styles open"></a><br><b>All 98 styles, open</b> · 77 in 2D · 4 in 2.5D · 17 in 3D<br><sub>Each film's style, a frame and a style prompt to reuse on your own topic.</sub></td>
 </tr></table>
 
@@ -30,7 +30,7 @@ other models may not reproduce them well, so use them with care.
 
 Every frame, every note and every cut was written in code by an AI agent (Zhipu's films with GLM-5.3).<br>
 Starring [Zhipu](docs/mascot/MASCOT.md), the GLM-Videos mascot — the Z.ai logo tile come to life, in Z.ai's own charcoal · white · signal blue, drawn in any style from pixel to [2.5D and 3D](docs/mascot/MASCOT.md#3-the-style-kit--one-mascot-every-style).<br>
-[**▶ Watch**](https://NiloyTheSpd.github.io/glm-videos/glm98/) · [**All 98 styles**](https://NiloyTheSpd.github.io/glm-videos/glm98/#styles) · [**Download 1080p**](https://github.com/NiloyTheSpd/glm-videos/releases/download/films/glm98.mp4)
+[**All 98 styles**](https://NiloyTheSpd.github.io/glm-videos/glm98/#styles) · [**Watch the style films**](https://NiloyTheSpd.github.io/glm-videos/)
 
 </div>
 
@@ -346,14 +346,14 @@ Click a frame for its `STYLE.md`.
 ### Thank-you films
 
 Thank-you films from the library's history, made in code like everything here.<br>
-Click a poster to watch on the <a href="https://NiloyTheSpd.github.io/glm-videos/thanks/">thank-you page</a>.
+These cuts are not published in this fork yet — the style films above are.
 
 <table><tr>
-<td width="20%" valign="top"><a href="https://NiloyTheSpd.github.io/glm-videos/thanks/#stars6000"><img src="docs/thanks/thanks-6000.jpg" alt="6,000 stars · The Quilt (50 s)"></a><br><sub>6,000 stars · The Quilt (50 s)</sub></td>
-<td width="20%" valign="top"><a href="https://NiloyTheSpd.github.io/glm-videos/thanks/#stars3000"><img src="docs/thanks/thanks-3000.jpg" alt="3,000 stars · Class Photo (48 s)"></a><br><sub>3,000 stars · Class Photo (48 s)</sub></td>
-<td width="20%" valign="top"><a href="https://NiloyTheSpd.github.io/glm-videos/thanks/#stars2000"><img src="docs/thanks/thanks-2000.jpg" alt="2000 stars · Refresh (50 s)"></a><br><sub>2,000 stars · Refresh (50 s)</sub></td>
-<td width="20%" valign="top"><a href="https://NiloyTheSpd.github.io/glm-videos/thanks/#stars800"><img src="docs/thanks/thanks-800.jpg" alt="800 stars · Reverse Shot (39 s)"></a><br><sub>800 stars · Reverse Shot (39 s)</sub></td>
-<td width="20%" valign="top"><a href="https://NiloyTheSpd.github.io/glm-videos/thanks/#stars300"><img src="docs/thanks/thanks-300.jpg" alt="300 stars · The Lamplighter (18 s)"></a><br><sub>300 stars · The Lamplighter (18 s)</sub></td>
+<td width="20%" valign="top"><img src="docs/thanks/thanks-6000.jpg" alt="6,000 stars · The Quilt (50 s)"><br><sub>6,000 stars · The Quilt (50 s)</sub></td>
+<td width="20%" valign="top"><img src="docs/thanks/thanks-3000.jpg" alt="3,000 stars · Class Photo (48 s)"><br><sub>3,000 stars · Class Photo (48 s)</sub></td>
+<td width="20%" valign="top"><img src="docs/thanks/thanks-2000.jpg" alt="2000 stars · Refresh (50 s)"><br><sub>2,000 stars · Refresh (50 s)</sub></td>
+<td width="20%" valign="top"><img src="docs/thanks/thanks-800.jpg" alt="800 stars · Reverse Shot (39 s)"><br><sub>800 stars · Reverse Shot (39 s)</sub></td>
+<td width="20%" valign="top"><img src="docs/thanks/thanks-300.jpg" alt="300 stars · The Lamplighter (18 s)"><br><sub>300 stars · The Lamplighter (18 s)</sub></td>
 </tr></table>
 
 ## Licence

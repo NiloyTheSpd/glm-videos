@@ -7,7 +7,7 @@ Meet Zhipu.
 It used to live in your terminal.
 
 3
-00:00:06,150 --> 00:00:08,830
+00:00:06,150 --> 00:00:09,590
 Now it lives right inside the Z.ai app.
 
 4
@@ -19,7 +19,7 @@ Just say what you want, in plain words.
 Point at a file with the @ sign,
 
 6
-00:00:16,050 --> 00:00:19,400
+00:00:16,050 --> 00:00:20,090
 and GLM reads your project before it touches a thing.
 
 7
@@ -39,7 +39,7 @@ Every edit shows up as a diff.
 Click any line, leave a note,
 
 11
-00:00:32,750 --> 00:00:34,480
+00:00:32,750 --> 00:00:34,730
 and GLM revises it.
 
 12
@@ -59,7 +59,7 @@ Got more to do? Start another session.
 They work side by side.
 
 16
-00:00:50,750 --> 00:00:52,030
+00:00:50,750 --> 00:00:51,990
 ZCode.
 
 17

@@ -21,7 +21,7 @@
 ## 🎬 特别放映：GLM-Videos 98
 
 <table><tr>
-<td width="50%" valign="top"><a href="https://NiloyTheSpd.github.io/glm-videos/glm98/"><img src="docs/glm98.jpg" alt="GLM-Videos 98：98 年最佳影片"></a><br><b>▶ 影片</b> · 1927 – 2025 · 6 分 31 秒<br><sub>一个 Zhipu 走过 98 部最佳影片，每一部都换成贴合那部电影的画风。</sub></td>
+<td width="50%" valign="top"><img src="docs/glm98.jpg" alt="GLM-Videos 98：98 年最佳影片"><br><b>▶ 影片</b> · 1927 – 2025 · 6 分 31 秒<br><sub>一个 Zhipu 走过 98 部最佳影片，每一部都换成贴合那部电影的画风。</sub></td>
 <td width="50%" valign="top"><a href="https://NiloyTheSpd.github.io/glm-videos/glm98/#styles"><img src="docs/glm98-styles.jpg" alt="GLM-Videos 98：98 种风格全部公开"></a><br><b>98 种风格全部公开</b> · 2D 77 · 2.5D 4 · 3D 17<br><sub>每部片的画风、截图和风格提示词，拿去拍你自己的题材。</sub></td>
 </tr></table>
 
@@ -29,7 +29,7 @@
 
 每一帧画面、每一个音符、每一刀剪辑，都是 AI agent 写代码做出来的（Zhipu 的片子用 GLM-5.3）。<br>
 主角 [Zhipu](docs/mascot/MASCOT.md) 是 GLM-Videos 的吉祥物 —— Z.ai 标志方块“活”了过来，用 Z.ai 自家的炭黑 · 白 · 信号蓝三色，从像素风到 [2.5D/3D](docs/mascot/MASCOT.md#3-the-style-kit--one-mascot-every-style) 都能画。<br>
-[**▶ 观看**](https://NiloyTheSpd.github.io/glm-videos/glm98/) · [**98 种风格**](https://NiloyTheSpd.github.io/glm-videos/glm98/#styles) · [**下载 1080p**](https://github.com/NiloyTheSpd/glm-videos/releases/download/films/glm98.mp4)
+[**98 种风格**](https://NiloyTheSpd.github.io/glm-videos/glm98/#styles) · [**观看风格片**](https://NiloyTheSpd.github.io/glm-videos/)
 
 </div>
 
@@ -346,14 +346,14 @@ git -C ~/glm-videos pull --ff-only   # 或者重新复制 skill 目录
 ### 谢谢每一颗星
 
 每到一个里程碑做一支感谢片，和库里所有片子一样全部用代码做成。<br>
-点海报到<a href="https://NiloyTheSpd.github.io/glm-videos/thanks/">感谢片页面</a>在线观看。
+这些片段暂未在这个分支发布——上面那些风格片都在。
 
 <table><tr>
-<td width="20%" valign="top"><a href="https://NiloyTheSpd.github.io/glm-videos/thanks/#stars6000"><img src="docs/thanks/thanks-6000.jpg" alt="6000 星 · 百家被（50 秒）"></a><br><sub>6000 星 · 百家被（50 秒）</sub></td>
-<td width="20%" valign="top"><a href="https://NiloyTheSpd.github.io/glm-videos/thanks/#stars3000"><img src="docs/thanks/thanks-3000.jpg" alt="3000 星 · 全家福（48 秒）"></a><br><sub>3000 星 · 全家福（48 秒）</sub></td>
-<td width="20%" valign="top"><a href="https://NiloyTheSpd.github.io/glm-videos/thanks/#stars2000"><img src="docs/thanks/thanks-2000.jpg" alt="2000 星 · 刷新（50 秒）"></a><br><sub>2000 星 · 刷新（50 秒）</sub></td>
-<td width="20%" valign="top"><a href="https://NiloyTheSpd.github.io/glm-videos/thanks/#stars800"><img src="docs/thanks/thanks-800.jpg" alt="800 星 · 反打（39 秒）"></a><br><sub>800 星 · 反打（39 秒）</sub></td>
-<td width="20%" valign="top"><a href="https://NiloyTheSpd.github.io/glm-videos/thanks/#stars300"><img src="docs/thanks/thanks-300.jpg" alt="300 星 · 点灯人（18 秒）"></a><br><sub>300 星 · 点灯人（18 秒）</sub></td>
+<td width="20%" valign="top"><img src="docs/thanks/thanks-6000.jpg" alt="6000 星 · 百家被（50 秒）"><br><sub>6000 星 · 百家被（50 秒）</sub></td>
+<td width="20%" valign="top"><img src="docs/thanks/thanks-3000.jpg" alt="3000 星 · 全家福（48 秒）"><br><sub>3000 星 · 全家福（48 秒）</sub></td>
+<td width="20%" valign="top"><img src="docs/thanks/thanks-2000.jpg" alt="2000 星 · 刷新（50 秒）"><br><sub>2000 星 · 刷新（50 秒）</sub></td>
+<td width="20%" valign="top"><img src="docs/thanks/thanks-800.jpg" alt="800 星 · 反打（39 秒）"><br><sub>800 星 · 反打（39 秒）</sub></td>
+<td width="20%" valign="top"><img src="docs/thanks/thanks-300.jpg" alt="300 星 · 点灯人（18 秒）"><br><sub>300 星 · 点灯人（18 秒）</sub></td>
 </tr></table>
 
 ## 授权

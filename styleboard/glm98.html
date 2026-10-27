@@ -201,7 +201,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:1px solid var
   <div class="frame"><div class="slot" id="slot">
     <p class="away" lang="en">Playing in the corner. Scroll back here to watch it large.</p><p class="away" lang="zh-CN">正在右下角播放，滚回这里看大画面</p>
     <div class="dock" id="dock">
-      <video id="film" controls playsinline preload="none" poster="{{FEATURE_POSTER}}" src="{{FEATURE_SRC}}"></video>
+      <!--FEATURE_PLAYER_START--><video id="film" controls playsinline preload="none" poster="{{FEATURE_POSTER}}" src="{{FEATURE_SRC}}"></video><!--FEATURE_PLAYER_END-->
       <div class="dockbar"><a class="dnow" id="dnow" href="#styles"></a>
         <button type="button" class="dloop on" id="dloop" aria-pressed="true"><span lang="en">Loop this film</span><span lang="zh-CN">循环本段</span></button>
         <button type="button" class="dclose" id="dclose" aria-label="Close the player · 关闭">×</button></div>
@@ -211,7 +211,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:1px solid var
 
   <p class="blurb">One Zhipu walks through all 98 Best Picture winners, each one redrawn in a style that fits the film. Every frame, every note and every cut was written in code by GLM-5.3.</p>
   <p class="blurb-cn">一个 Zhipu 走过 98 部最佳影片，每一部都换成贴合那部电影的画风。每一帧画面、每一个音符、每一刀剪辑，都是 GLM-5.3 写代码做出来的。</p>
-  <nav class="links"><a class="main" href="{{FEATURE_FULL}}" target="_blank" rel="noopener">Download · 1080p</a><a href="{{REPO_URL}}" target="_blank" rel="noopener">Source repo · 仓库</a><a href="#styles">The 98 styles · 98 种风格</a><a href="../">The {{N_ALL}} styles · 风格图鉴</a></nav>
+  <nav class="links"><a class="main" href="{{REPO_URL}}" target="_blank" rel="noopener">Source repo · 仓库</a><a href="#styles">The 98 styles · 98 种风格</a><a href="../">The {{N_ALL}} styles · 风格图鉴</a></nav>
 
   <dl class="credits">
     <div><dt>Running time</dt><dd>{{FEATURE_DUR}}<small>98 部影片，1927 – 2025</small></dd></div>
