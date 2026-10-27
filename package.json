@@ -1,0 +1,13 @@
+{
+  "name": "glm-videos",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Film styles for GLM-powered coding agents (Z.ai / GLM-5.3): each style ships a prompt and a demo film made entirely in code, on a shared toolkit.",
+  "engines": { "node": ">=20" },
+  "license": "MIT",
+  "dependencies": {
+    "playwright-core": "^1.63.0",
+    "three": "^0.170.0"
+  }
+}

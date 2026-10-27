@@ -1,0 +1,9 @@
+Living Screencast · "Zhipu Moves In" (59.4 s) — GLM-Videos × GLM-5.3 · Unofficial fan film, not affiliated with Z.ai.
+Zhipu, the GLM-Videos mascot, is an original character of this project (drawn from scratch in HTML/CSS/SVG, no screenshots). The Z.ai app interface is likewise redrawn from scratch; Z.ai's name and interface belong to Z.ai. Unofficial fan film: Z.ai did not make or endorse it.
+
+Voice: Kokoro-82M (hexgrad, Apache 2.0) via kokoro-onnx, voice am_michael. Checked with faster-whisper medium.en.
+Fonts (SIL OFL 1.1): Inter (Rasmus Andersson), Newsreader (Production Type), JetBrains Mono (JetBrains). Licences in fonts/.
+Piano: "Salamander Grand Piano V3" by Alexander Holm, licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/)
+Drums: "MuldjordKit" by Lars Muldjord (drumgizmo.org), FreePats version, licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+Samples (CC0): Karoryfer Samples / sfzinstruments (jazz bass), VS Chamber Orchestra: Community Edition and Versilian Community Sample Library (Versilian Studios) — glockenspiel, violins, claps, shaker.
+Chiptune voice of Zhipu, UI foley and all sound effects: synthesised in sound.py.
