@@ -28,6 +28,10 @@ PACKS = {
     **{f'instruments-{lib}': ['core/audio/instruments/index.json', f'core/audio/instruments/{lib}'] for lib in SAMPLE_LIBS},
 }
 STYLE_FIELDS = ('slug', 'en', 'cn', 'category_en', 'category_cn', 'film', 'line', 'line_cn', 'frame_sec')
+# Films that must never be published: they still carry the old mascot.
+# The GLM-Videos rebrand replaced it with the Zhipu, and the old character
+# must not appear in anything the repository or the releases put on show.
+EXCLUDED_FILMS = {'opuscar98'}
 SIGN_OFF = re.compile(r'(?i:glm.?videos)|GLM-5\.3|Sign-off')
 # a home folder may be `Alice Smith` (up to three words, none ending in a dot, so a sentence isn't swallowed); /root/ counts when a path follows it
 LOCAL_PATH = re.compile(rb'/Users/[A-Za-z0-9_](?:[A-Za-z0-9_.-]*[A-Za-z0-9_-])?(?: [A-Za-z0-9_](?:[A-Za-z0-9_.-]*[A-Za-z0-9_-])?){0,2}/|/priv' rb'ate/tmp/|/home/[A-Za-z0-9_][A-Za-z0-9_.-]*/|(?<![A-Za-z0-9_.~-])/ro' rb'ot/[A-Za-z0-9_.~-]|/Volum' rb'es/|[A-Z]:\\Users\\')
@@ -299,7 +303,20 @@ def pack():
 
 
 def gh(*a, check=True):
+    """Run the GitHub CLI and return its CompletedProcess, with the tool manager's
+    banner stripped off stdout.
+
+    `gh` here is a mise shim, and mise announces itself -- "mise ~/.config/mise/
+    config.toml tools: gh@2.103.3" -- on stdout before the command's own output.
+    Left in place it breaks every JSON parse of what comes back.
+    """
     r = subprocess.run(['gh', *a, '--repo', REPO], cwd=ROOT, capture_output=True, text=True)
+    out = r.stdout
+    if out.startswith('mise'):
+        # drop the mise lines, then anything else before the first JSON brace
+        head, sep, tail = out.partition('{')
+        if sep: out = '{' + tail
+    r.stdout = out
     if check and r.returncode: sys.exit(f'✗ gh {" ".join(a[:3])} failed: {(r.stderr or r.stdout).strip()[:300]}')
     return r
 
@@ -308,7 +325,11 @@ def remote(tag):
     """{name: (size, sha256 or None)} of a release; {} when the release doesn't exist yet."""
     r = gh('release', 'view', tag, '--json', 'assets', check=False)
     if r.returncode: return {}
-    return {a['name']: (a['size'], (a.get('digest') or '').removeprefix('sha256:') or None) for a in json.loads(r.stdout).get('assets', [])}
+    try:
+        assets = json.loads(r.stdout).get('assets', [])
+    except json.JSONDecodeError:     # the release is not there yet, or gh said nothing
+        return {}
+    return {a['name']: (a['size'], (a.get('digest') or '').removeprefix('sha256:') or None) for a in assets}
 
 
 def plan():
@@ -318,9 +339,14 @@ def plan():
     rel = {t: remote(t) for t in ('assets', 'films', 'web')}
     todo = []
     styles = style_slugs()
-    features = [os.path.basename(f)[:-4] for f in glob.glob(os.path.join(OUT, 'films', '*.mp4')) if os.path.basename(f)[:-4] not in styles]
+    features = [os.path.basename(f)[:-4] for f in glob.glob(os.path.join(OUT, 'films', '*.mp4'))
+                if os.path.basename(f)[:-4] not in styles
+                and os.path.basename(f)[:-4] not in EXCLUDED_FILMS]
     for slug in styles + sorted(features):
-        film = os.path.join(ROOT, 'styles', slug, slug + '.mp4') if slug in styles else os.path.join(OUT, 'films', slug + '.mp4')
+        # a style's film lives in its own folder; a feature film lives in .release/films
+        film = os.path.join(ROOT, 'styles', slug, slug + '.mp4')
+        if not os.path.isfile(film):
+            film = os.path.join(OUT, 'films', slug + '.mp4')
         if not os.path.isfile(film): continue                            # unfinished, or its film is on another machine
         for tag, path in (('films', film), ('web', os.path.join(OUT, 'web', slug + '.mp4'))):
             if not os.path.isfile(path): todo.append((tag, None, f'{slug}.mp4: no local file (sh tools/web_cuts.sh)')); continue

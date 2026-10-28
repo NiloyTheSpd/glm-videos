@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700" width="1600" height="700" role="img" aria-labelledby="t d">
+  <title id="t">GLM-Videos — thank you</title>
+  <desc id="d">The Zhipu mascot in the Z.ai brand palette on a star field, thanking every star. Original design of the GLM-Videos project.</desc>
+  <defs>
+    <!-- the Z emblem, traced from the official Z.ai mark (white strokes) -->
+    <g id="zmark">
+      <path d="M15.47,7.1l-1.3,1.85c-0.2,0.29-0.54,0.47-0.9,0.47h-7.1V7.09C6.16,7.1,15.47,7.1,15.47,7.1z"/>
+      <polygon points="24.3,7.1 13.14,22.91 5.7,22.91 16.86,7.1"/>
+      <path d="M14.53,22.91l1.31-1.86c0.2-0.29,0.54-0.47,0.9-0.47h7.09v2.33H14.53z"/>
+    </g>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1F63EC" stop-opacity=".34"/>
+      <stop offset="100%" stop-color="#1F63EC" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#14121A"/>
+      <stop offset="100%" stop-color="#08070C"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="700" fill="url(#bg)"/>
+
+  <!-- stars -->
+  <g fill="#FFFFFF">
+    <g opacity=".85">
+      <circle cx="150" cy="90" r="3"/><circle cx="330" cy="180" r="2.5"/><circle cx="520" cy="70" r="2"/>
+      <circle cx="700" cy="150" r="3"/><circle cx="900" cy="90" r="2.5"/><circle cx="1090" cy="170" r="2"/>
+      <circle cx="1290" cy="80" r="3"/><circle cx="1470" cy="200" r="2.5"/><circle cx="240" cy="320" r="2"/>
+      <circle cx="460" cy="420" r="2.5"/><circle cx="1140" cy="380" r="2"/><circle cx="1400" cy="450" r="3"/>
+      <circle cx="90" cy="520" r="2.5"/><circle cx="320" cy="580" r="2"/><circle cx="1280" cy="560" r="2.5"/>
+    </g>
+    <g opacity=".45">
+      <circle cx="230" cy="200" r="1.5"/><circle cx="420" cy="280" r="1.5"/><circle cx="600" cy="220" r="1.5"/>
+      <circle cx="780" cy="300" r="1.5"/><circle cx="960" cy="230" r="1.5"/><circle cx="1180" cy="290" r="1.5"/>
+      <circle cx="1360" cy="340" r="1.5"/><circle cx="180" cy="440" r="1.5"/><circle cx="560" cy="520" r="1.5"/>
+      <circle cx="760" cy="470" r="1.5"/><circle cx="1020" cy="540" r="1.5"/><circle cx="1520" cy="380" r="1.5"/>
+    </g>
+    <!-- a few blue signal stars -->
+    <g fill="#1F63EC" opacity=".8">
+      <path d="M410 96l6 16 16 6-16 6-6 16-6-16-16-6 16-6z"/>
+      <path d="M1210 250l5 13 13 5-13 5-5 13-5-13-13-5 13-5z"/>
+    </g>
+  </g>
+
+  <!-- spotlight on the mascot -->
+  <ellipse cx="800" cy="370" rx="330" ry="290" fill="url(#glow)"/>
+
+  <!-- ground shadow -->
+  <ellipse cx="800" cy="560" rx="150" ry="22" fill="#000000" opacity=".45"/>
+
+  <!-- antenna: signal-blue wisdom spark -->
+  <circle cx="800" cy="150" r="30" fill="none" stroke="#1F63EC" stroke-opacity=".3" stroke-width="9"/>
+  <rect x="794" y="164" width="12" height="46" rx="6" fill="#1849C8"/>
+  <circle cx="800" cy="148" r="20" fill="#1F63EC"/>
+  <circle cx="793" cy="141" r="5.5" fill="#FFFFFF"/>
+
+  <!-- arms -->
+  <rect x="664" y="292" width="46" height="80" rx="23" fill="#2D2D2D"/>
+  <rect x="890" y="292" width="46" height="80" rx="23" fill="#2D2D2D"/>
+
+  <!-- feet -->
+  <rect x="724" y="520" width="54" height="38" rx="16" fill="#1849C8"/>
+  <rect x="822" y="520" width="54" height="38" rx="16" fill="#1849C8"/>
+
+  <!-- the tile: the Z.ai logo square, come to life -->
+  <rect x="696" y="198" width="208" height="302" rx="32" fill="#2D2D2D"/>
+
+  <!-- face: white glowing eyes + smile -->
+  <rect x="736" y="248" width="40" height="52" rx="18" fill="#FFFFFF"/>
+  <rect x="824" y="248" width="40" height="52" rx="18" fill="#FFFFFF"/>
+  <rect x="748" y="264" width="14" height="24" rx="7" fill="#1F63EC"/>
+  <rect x="836" y="264" width="14" height="24" rx="7" fill="#1F63EC"/>
+  <path d="M770 328 Q800 348 830 328" fill="none" stroke="#FFFFFF" stroke-width="11" stroke-linecap="round"/>
+
+  <!-- chest: the Z emblem -->
+  <use href="#zmark" transform="translate(752,336) scale(3.8)" fill="#FFFFFF"/>
+
+  <!-- the message -->
+  <text x="800" y="78" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="58" fill="#FFFFFF" letter-spacing="1">Thank you for every star.</text>
+  <text x="800" y="606" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="44" fill="#FFFFFF" letter-spacing="4">谢谢每一颗星。</text>
+  <text x="800" y="654" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-weight="600" font-size="19" fill="#9B93A8" letter-spacing="6">GLM-VIDEOS · MADE IN CODE ON Z.AI</text>
+</svg>

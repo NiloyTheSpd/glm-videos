@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-labelledby="t d">
+  <title id="t">GLM-Videos 98 — 98 Styles, All Open</title>
+  <desc id="d">The Zhipu mascot in the Z.ai brand palette beside a panel listing the 98 stylebook entries. Original design of the GLM-Videos project.</desc>
+  <defs>
+    <!-- the Z emblem, traced from the official Z.ai mark (white strokes) -->
+    <g id="zmark">
+      <path d="M15.47,7.1l-1.3,1.85c-0.2,0.29-0.54,0.47-0.9,0.47h-7.1V7.09C6.16,7.1,15.47,7.1,15.47,7.1z"/>
+      <polygon points="24.3,7.1 13.14,22.91 5.7,22.91 16.86,7.1"/>
+      <path d="M14.53,22.91l1.31-1.86c0.2-0.29,0.54-0.47,0.9-0.47h7.09v2.33H14.53z"/>
+    </g>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1F63EC" stop-opacity=".34"/>
+      <stop offset="100%" stop-color="#1F63EC" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#14121A"/>
+      <stop offset="100%" stop-color="#08070C"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#242129"/>
+      <stop offset="100%" stop-color="#17151C"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+
+  <!-- the 98 best-picture frames, as a faint mosaic behind -->
+  <g opacity=".14" fill="#FFFFFF">
+    <rect x="40" y="70" width="110" height="74" rx="4"/><rect x="162" y="70" width="110" height="74" rx="4"/>
+    <rect x="284" y="70" width="110" height="74" rx="4"/><rect x="406" y="70" width="110" height="74" rx="4"/>
+    <rect x="528" y="70" width="110" height="74" rx="4"/><rect x="650" y="70" width="110" height="74" rx="4"/>
+    <rect x="772" y="70" width="110" height="74" rx="4"/><rect x="894" y="70" width="110" height="74" rx="4"/>
+    <rect x="1016" y="70" width="110" height="74" rx="4"/><rect x="1138" y="70" width="110" height="74" rx="4"/>
+    <rect x="1260" y="70" width="110" height="74" rx="4"/><rect x="1382" y="70" width="110" height="74" rx="4"/>
+    <rect x="40" y="756" width="110" height="74" rx="4"/><rect x="162" y="756" width="110" height="74" rx="4"/>
+    <rect x="284" y="756" width="110" height="74" rx="4"/><rect x="406" y="756" width="110" height="74" rx="4"/>
+    <rect x="528" y="756" width="110" height="74" rx="4"/><rect x="650" y="756" width="110" height="74" rx="4"/>
+    <rect x="1138" y="756" width="110" height="74" rx="4"/><rect x="1260" y="756" width="110" height="74" rx="4"/>
+    <rect x="1382" y="756" width="110" height="74" rx="4"/>
+  </g>
+
+  <!-- spotlight on the mascot -->
+  <ellipse cx="1230" cy="400" rx="330" ry="330" fill="url(#glow)"/>
+
+  <!-- ground shadow -->
+  <ellipse cx="1230" cy="620" rx="150" ry="22" fill="#000000" opacity=".45"/>
+
+  <!-- antenna: signal-blue wisdom spark -->
+  <circle cx="1230" cy="128" r="30" fill="none" stroke="#1F63EC" stroke-opacity=".3" stroke-width="9"/>
+  <rect x="1224" y="142" width="12" height="48" rx="6" fill="#1849C8"/>
+  <circle cx="1230" cy="126" r="20" fill="#1F63EC"/>
+  <circle cx="1223" cy="119" r="5.5" fill="#FFFFFF"/>
+
+  <!-- arms -->
+  <rect x="1074" y="288" width="46" height="82" rx="23" fill="#2D2D2D"/>
+  <rect x="1340" y="288" width="46" height="82" rx="23" fill="#2D2D2D"/>
+
+  <!-- feet -->
+  <rect x="1144" y="574" width="54" height="38" rx="16" fill="#1849C8"/>
+  <rect x="1262" y="574" width="54" height="38" rx="16" fill="#1849C8"/>
+
+  <!-- the tile: the Z.ai logo square, come to life -->
+  <rect x="1112" y="182" width="236" height="344" rx="35" fill="#2D2D2D"/>
+
+  <!-- face: white glowing eyes + smile -->
+  <rect x="1156" y="238" width="44" height="58" rx="20" fill="#FFFFFF"/>
+  <rect x="1260" y="238" width="44" height="58" rx="20" fill="#FFFFFF"/>
+  <rect x="1170" y="256" width="16" height="26" rx="8" fill="#1F63EC"/>
+  <rect x="1274" y="256" width="16" height="26" rx="8" fill="#1F63EC"/>
+  <path d="M1196 328 Q1230 350 1264 328" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round"/>
+
+  <!-- chest: the Z emblem -->
+  <use href="#zmark" transform="translate(1172,340) scale(4)" fill="#FFFFFF"/>
+
+  <!-- the panel -->
+  <rect x="70" y="150" width="900" height="600" rx="18" fill="url(#panel)" stroke="#FFFFFF" stroke-opacity=".12" stroke-width="2"/>
+
+  <text x="120" y="228" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="22" fill="#1F63EC" letter-spacing="7">GLM-VIDEOS 98 · THE STYLE BOOK · 风格大全公开</text>
+
+  <text x="120" y="330" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="92" fill="#FFFFFF" letter-spacing="1">98 STYLES,</text>
+  <text x="120" y="428" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="92" fill="#FFFFFF" letter-spacing="1">ALL OPEN</text>
+
+  <text x="120" y="486" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="52" fill="#FFFFFF" letter-spacing="3">98 种风格，全部公开</text>
+
+  <text x="120" y="536" font-family="Helvetica, Arial, sans-serif" font-size="22" fill="#B7AFC2">Every Best Picture winner, 1927 – 2025, got its own style. Now each one is yours.</text>
+  <text x="120" y="570" font-family="Helvetica, Arial, sans-serif" font-size="22" fill="#B7AFC2">98 部奥斯卡最佳影片，每部一种画风。现在全部公开，拿去拍你自己的片子。</text>
+
+  <!-- stats row -->
+  <g font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="46" fill="#FFFFFF">
+    <text x="120" y="672">77<tspan font-size="22" fill="#8E859E" dx="8">2D</tspan></text>
+    <text x="300" y="672">4<tspan font-size="22" fill="#8E859E" dx="8">2.5D</tspan></text>
+    <text x="470" y="672">17<tspan font-size="22" fill="#8E859E" dx="8">3D</tspan></text>
+    <text x="640" y="672">98<tspan font-size="22" fill="#8E859E" dx="8">PROMPTS</tspan></text>
+  </g>
+  <g font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#8E859E">
+    <text x="120" y="704">STYLE · 2D/3D</text>
+    <text x="300" y="704">THE FRAME</text>
+    <text x="470" y="704">STYLE PROMPT</text>
+    <text x="640" y="704">SHOTS · DIRECTION</text>
+  </g>
+
+  <!-- footer -->
+  <text x="120" y="784" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#6E6779" letter-spacing="2">MADE IN CODE ON Z.AI · 每个风格都可复用</text>
+</svg>

@@ -22,7 +22,7 @@ other models may not reproduce them well, so use them with care.
 ## 🎬 Feature presentation: GLM-Videos 98
 
 <table><tr>
-<td width="50%" valign="top"><img src="docs/glm98.jpg" alt="GLM-Videos 98 — 98 Years of Best Picture"><br><b>GLM-Videos 98</b> · 1927 – 2025 · 6:31<br><sub>One Zhipu walks through all 98 Best Picture winners, each one redrawn in a style that fits the film.</sub></td>
+<td width="50%" valign="top"><img src="docs/glm98.jpg" alt="GLM-Videos 98 — 98 Years of Best Picture"><br><b>GLM-Videos 98</b> · 1927 – 2025<br><sub>One Zhipu walks through all 98 Best Picture winners, each one redrawn in a style that fits the film. The feature cut is not published in this fork yet.</sub></td>
 <td width="50%" valign="top"><a href="https://NiloyTheSpd.github.io/glm-videos/glm98/#styles"><img src="docs/glm98-styles.jpg" alt="GLM-Videos 98 — all 98 styles open"></a><br><b>All 98 styles, open</b> · 77 in 2D · 4 in 2.5D · 17 in 3D<br><sub>Each film's style, a frame and a style prompt to reuse on your own topic.</sub></td>
 </tr></table>
 
@@ -343,18 +343,12 @@ Click a frame for its `STYLE.md`.
  </picture>
 </a>
 
-### Thank-you films
+### Thank you
 
-Thank-you films from the library's history, made in code like everything here.<br>
-These cuts are not published in this fork yet — the style films above are.
+<img src="docs/thanks/thanks-glm.jpg" alt="GLM-Videos — thank you for every star" width="100%">
 
-<table><tr>
-<td width="20%" valign="top"><img src="docs/thanks/thanks-6000.jpg" alt="6,000 stars · The Quilt (50 s)"><br><sub>6,000 stars · The Quilt (50 s)</sub></td>
-<td width="20%" valign="top"><img src="docs/thanks/thanks-3000.jpg" alt="3,000 stars · Class Photo (48 s)"><br><sub>3,000 stars · Class Photo (48 s)</sub></td>
-<td width="20%" valign="top"><img src="docs/thanks/thanks-2000.jpg" alt="2000 stars · Refresh (50 s)"><br><sub>2,000 stars · Refresh (50 s)</sub></td>
-<td width="20%" valign="top"><img src="docs/thanks/thanks-800.jpg" alt="800 stars · Reverse Shot (39 s)"><br><sub>800 stars · Reverse Shot (39 s)</sub></td>
-<td width="20%" valign="top"><img src="docs/thanks/thanks-300.jpg" alt="300 stars · The Lamplighter (18 s)"><br><sub>300 stars · The Lamplighter (18 s)</sub></td>
-</tr></table>
+The library's thank-you films from its history are made in code like everything here.<br>
+Those cuts are not published in this fork yet — the style films above are.
 
 ## Licence
 

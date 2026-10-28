@@ -5,7 +5,7 @@ name: gallery
 on:
   push:
     branches: [main]
-    paths: ['styleboard/**', 'styles/*/poster.jpg', 'styles/*/style.json', 'styles/*/STYLE.md', '.github/workflows/pages.yml']
+    paths: ['styleboard/**', 'styles/*/poster.jpg', 'styles/*/style.json', 'styles/*/STYLE.md', 'docs/**', '.github/workflows/pages.yml']
   workflow_dispatch:
 
 permissions:

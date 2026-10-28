@@ -21,7 +21,7 @@
 ## 🎬 特别放映：GLM-Videos 98
 
 <table><tr>
-<td width="50%" valign="top"><img src="docs/glm98.jpg" alt="GLM-Videos 98：98 年最佳影片"><br><b>▶ 影片</b> · 1927 – 2025 · 6 分 31 秒<br><sub>一个 Zhipu 走过 98 部最佳影片，每一部都换成贴合那部电影的画风。</sub></td>
+<td width="50%" valign="top"><img src="docs/glm98.jpg" alt="GLM-Videos 98：98 年最佳影片"><br><b>GLM-Videos 98</b> · 1927 – 2025<br><sub>一个 Zhipu 走过 98 部最佳影片，每一部都换成贴合那部电影的画风。这支特别篇在本分支还没有发布。</sub></td>
 <td width="50%" valign="top"><a href="https://NiloyTheSpd.github.io/glm-videos/glm98/#styles"><img src="docs/glm98-styles.jpg" alt="GLM-Videos 98：98 种风格全部公开"></a><br><b>98 种风格全部公开</b> · 2D 77 · 2.5D 4 · 3D 17<br><sub>每部片的画风、截图和风格提示词，拿去拍你自己的题材。</sub></td>
 </tr></table>
 
@@ -345,16 +345,10 @@ git -C ~/glm-videos pull --ff-only   # 或者重新复制 skill 目录
 
 ### 谢谢每一颗星
 
+<img src="docs/thanks/thanks-glm.jpg" alt="GLM-Videos —— 谢谢每一颗星" width="100%">
+
 每到一个里程碑做一支感谢片，和库里所有片子一样全部用代码做成。<br>
 这些片段暂未在这个分支发布——上面那些风格片都在。
-
-<table><tr>
-<td width="20%" valign="top"><img src="docs/thanks/thanks-6000.jpg" alt="6000 星 · 百家被（50 秒）"><br><sub>6000 星 · 百家被（50 秒）</sub></td>
-<td width="20%" valign="top"><img src="docs/thanks/thanks-3000.jpg" alt="3000 星 · 全家福（48 秒）"><br><sub>3000 星 · 全家福（48 秒）</sub></td>
-<td width="20%" valign="top"><img src="docs/thanks/thanks-2000.jpg" alt="2000 星 · 刷新（50 秒）"><br><sub>2000 星 · 刷新（50 秒）</sub></td>
-<td width="20%" valign="top"><img src="docs/thanks/thanks-800.jpg" alt="800 星 · 反打（39 秒）"><br><sub>800 星 · 反打（39 秒）</sub></td>
-<td width="20%" valign="top"><img src="docs/thanks/thanks-300.jpg" alt="300 星 · 点灯人（18 秒）"><br><sub>300 星 · 点灯人（18 秒）</sub></td>
-</tr></table>
 
 ## 授权
 

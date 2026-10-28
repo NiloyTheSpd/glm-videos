@@ -51,6 +51,7 @@ styles/*/demo/fonts/**/*.otf
 # 发布暂存 / Pages 构建产物
 /.release/
 /_site/
+/site/
 
 # Demo folders keep code and CREDITS for agents to read; renders, media and process notes stay local
 styles/*/storyboard/

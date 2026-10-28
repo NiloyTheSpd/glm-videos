@@ -14,6 +14,23 @@ const out = path.resolve(opt('--out', path.join(dir, 'out', 'video.mp4')));
 const outDir = path.dirname(out), base = path.basename(out, path.extname(out));
 fs.mkdirSync(outDir, { recursive: true });
 
+// —— the encoder ——
+// With an NVIDIA GPU, h264_nvenc encodes several times faster than libx264 and
+// leaves the CPU free for the browser workers. It is only used when the machine
+// really has the encoder: GLM_NVENC=0 turns it off, and if ffmpeg has no
+// h264_nvenc the render falls back to libx264 rather than failing.
+const NVENC = process.env.GLM_NVENC !== '0' && hasNvenc();
+function hasNvenc() {
+  try {
+    const out = execFileSync('ffmpeg', ['-hide_banner', '-encoders'], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
+    return /\bh264_nvenc\b/.test(out);
+  } catch { return false; }
+}
+const ENCODER = NVENC
+  ? ['-c:v', 'h264_nvenc', '-preset', 'p4', '-tune', 'hq', '-rc', 'vbr', '-cq', '18', '-b:v', '0', '-pix_fmt', 'yuv420p']
+  : ['-c:v', 'libx264', '-preset', 'medium', '-crf', '14', '-pix_fmt', 'yuv420p'];
+if (NVENC) console.log(`encoder: h264_nvenc (${opt('--size', '')} nvenc)`);
+
 // —— only one render may write a given --out: <out>.lock holds the pid ——
 const alive = pid => { try { process.kill(pid, 0); return true; } catch (e) { return e.code === 'EPERM'; } };
 const lock = out + '.lock', LOCK_MAX_AGE = 12 * 3600 * 1000;
@@ -46,7 +63,7 @@ try { await Promise.all([...Array(WK)].map(async (_, w) => {
   const { browser, page } = await openDemo(dir, { w: W, h: H, q: Q });
   // cwd set to the segment directory with relative filenames: that way ffmpeg won't read characters such as # ? in the path as protocol syntax
   const ff = spawn('ffmpeg', ['-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', String(FPS), '-c:v', 'mjpeg', '-i', '-',
-    '-c:v', 'libx264', '-preset', 'medium', '-crf', '14', '-pix_fmt', 'yuv420p', `seg_${w}.mp4`], { cwd: segDir, stdio: ['pipe', 'inherit', 'inherit'] });
+    ...ENCODER, `seg_${w}.mp4`], { cwd: segDir, stdio: ['pipe', 'inherit', 'inherit'] });
   procs.add(ff); ff.on('close', () => procs.delete(ff));
   let dead = null;   // ffmpeg exited early (missing encoder, disk full…): its own error is already on stderr; here we just note it and stop feeding frames
   let done; const closed = new Promise(r => { done = r; }); ff.on('close', code => done(code));

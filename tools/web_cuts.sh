@@ -18,6 +18,8 @@ done
 for f in .release/films/*.mp4; do      # feature films (not a style), e.g. glm98
   [ -f "$f" ] || continue
   s=$(basename "$f" .mp4)
+  # films that still carry the old mascot are never cut for the gallery
+  case "$s" in opuscar98) continue ;; esac
   [ -f "styles/$s/STYLE.md" ] || webcut "$f" "$s"
 done
 du -sh .release/web
